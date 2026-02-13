@@ -9,6 +9,7 @@ const Login = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
     const [errors, setErrors] = useState({})
 
     const handleLogin = (e) => {
@@ -53,7 +54,7 @@ const Login = () => {
                             <label className='block text-gray-700 font-medium'>Password</label>
                             <a href="#" className='text-sm text-orange-500 hover:text-orange-600 transition duration-300'>Forgot Password?</a>
                         </div>
-                        <input type="password" placeholder='Enter your password'
+                        <input type={showPassword ? "text" : "password"} placeholder='Enter your password'
                             className={`w-full px-4 py-3 bg-gray-50 border ${errors.password ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-300`}
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
@@ -61,8 +62,12 @@ const Login = () => {
                         {errors.password && <p className='text-red-500 text-xs mt-1'>{errors.password}</p>}
                     </div>
                     <div className='flex items-center gap-2'>
-                        <input type="checkbox" id="remember" className='w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 rounded focus:ring-orange-500 transition duration-300' />
-                        <label htmlFor="remember" className='text-gray-600'>Remember Me</label>
+                        <input type="checkbox" id="showPassword"
+                            className='w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 rounded focus:ring-orange-500 transition duration-300'
+                            checked={showPassword}
+                            onChange={() => setShowPassword(!showPassword)}
+                        />
+                        <label htmlFor="showPassword" className='text-gray-600'>Show Password</label>
                     </div>
                     <button className='w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-300 transform hover:scale-[1.02]'>
                         Login

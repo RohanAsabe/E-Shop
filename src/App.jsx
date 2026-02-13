@@ -11,9 +11,20 @@ import { useState } from 'react'
 import Order from './components/Order'
 import Login from './components/Login'
 import Register from './components/Register'
+import Profile from './components/Profile'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { setProducts } from './redux/productSlice'
+import { mockData } from './assets/mockData'
+
 function App() {
 
   const [order, setOrder] = useState(null)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(setProducts(mockData))
+  }, [])
 
   return (
 
@@ -29,6 +40,7 @@ function App() {
           <Route path='/order-confirmation' element={<Order order={order} />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/register' element={<Register />}></Route>
+          <Route path='/profile' element={<Profile />}></Route>
 
 
         </Routes>

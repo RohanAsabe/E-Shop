@@ -1,5 +1,0 @@
-com\example\backend\controller\AuthController.class
-com\example\backend\repository\UserRepository.class
-com\example\backend\BackendApplication.class
-com\example\backend\config\SecurityConfig.class
-com\example\backend\entity\User.class

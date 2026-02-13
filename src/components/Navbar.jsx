@@ -52,9 +52,17 @@ const Navbar = () => {
                         )}
 
                     </div>
-                    <button className='block md:hidden'>
-                        <FaUser />
-                    </button>
+                    <div className='block md:hidden'>
+                        {user ? (
+                            <Link to="/profile">
+                                <FaUser />
+                            </Link>
+                        ) : (
+                            <Link to="/login">
+                                <FaUser />
+                            </Link>
+                        )}
+                    </div>
                 </div>
             </div>
             <div className='flex justify-center items-center space-x-10 py-2'>
