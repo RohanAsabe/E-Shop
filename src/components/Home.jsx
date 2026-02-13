@@ -1,7 +1,7 @@
 import React from 'react'
 import { Categories } from '../assets/mockData'
 import HeroImage from '../assets/Hero-page.jpg'
-import InfoSection from './infoSection'
+import InfoSection from './InfoSection'
 import CategoriesHome from './CategoriesHome'
 import { useSelector } from 'react-redux'
 import ProductCard from './ProductCard'
