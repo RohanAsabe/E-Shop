@@ -2,7 +2,10 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { login } from '../redux/authSlice'
+<<<<<<< HEAD
 import API from "../api";
+=======
+>>>>>>> 21555ba2bf67e86e20c410275a6826418d44e57c
 
 const Register = () => {
     const dispatch = useDispatch()
@@ -13,6 +16,7 @@ const Register = () => {
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState({})
 
+<<<<<<< HEAD
     const handleRegister = async (e) => {
     e.preventDefault()
 
@@ -48,6 +52,34 @@ const Register = () => {
     }
 }
 
+=======
+    const handleRegister = (e) => {
+        e.preventDefault()
+        const newErrors = {}
+        if (!name) {
+            newErrors.name = "Name is required"
+        }
+        if (!email) {
+            newErrors.email = "Email is required"
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            newErrors.email = "Email is invalid"
+        }
+        if (!password) {
+            newErrors.password = "Password is required"
+        } else if (password.length < 6) {
+            newErrors.password = "Password must be at least 6 characters"
+        }
+
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors)
+            return
+        }
+
+        setErrors({})
+        dispatch(login({ name: name, email: email }))
+        navigate('/')
+    }
+>>>>>>> 21555ba2bf67e86e20c410275a6826418d44e57c
     return (
         <div className='w-full h-screen flex items-center justify-center bg-gray-100'>
             <div className='w-full max-w-md bg-white p-8 rounded-2xl shadow-lg'>

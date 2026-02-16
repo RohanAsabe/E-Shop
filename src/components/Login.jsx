@@ -2,7 +2,10 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { login } from '../redux/authSlice'
+<<<<<<< HEAD
 import API from "../api";
+=======
+>>>>>>> 21555ba2bf67e86e20c410275a6826418d44e57c
 
 const Login = () => {
     const dispatch = useDispatch()
@@ -13,17 +16,26 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [errors, setErrors] = useState({})
 
+<<<<<<< HEAD
     const handleLogin = async (e) => {
         e.preventDefault()
 
         const newErrors = {}
 
+=======
+    const handleLogin = (e) => {
+        e.preventDefault()
+        const newErrors = {}
+>>>>>>> 21555ba2bf67e86e20c410275a6826418d44e57c
         if (!email) {
             newErrors.email = "Email is required"
         } else if (!/\S+@\S+\.\S+/.test(email)) {
             newErrors.email = "Email is invalid"
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 21555ba2bf67e86e20c410275a6826418d44e57c
         if (!password) {
             newErrors.password = "Password is required"
         }
@@ -34,6 +46,7 @@ const Login = () => {
         }
 
         setErrors({})
+<<<<<<< HEAD
 
         try {
             // clear old login session
@@ -64,12 +77,18 @@ const Login = () => {
             console.log(err.response?.data || err.message)
             alert("Invalid email or password")
         }
+=======
+        dispatch(login({ name: "User", email: email }))
+        navigate('/')
+
+>>>>>>> 21555ba2bf67e86e20c410275a6826418d44e57c
     }
 
     return (
         <div className='w-full h-screen flex items-center justify-center bg-gray-100'>
             <div className='w-full max-w-md bg-white p-8 rounded-2xl shadow-lg'>
                 <h2 className='text-3xl font-bold text-center mb-6 text-gray-800'>Login</h2>
+<<<<<<< HEAD
 
                 <form className='space-y-4' onSubmit={handleLogin}>
                     
@@ -78,26 +97,40 @@ const Login = () => {
                         <input
                             type="email"
                             placeholder='Enter your email'
+=======
+                <form className='space-y-4' onSubmit={handleLogin}>
+                    <div>
+                        <label className='block text-gray-700 font-medium mb-1'>Email</label>
+                        <input type="email" placeholder='Enter your email'
+>>>>>>> 21555ba2bf67e86e20c410275a6826418d44e57c
                             className={`w-full px-4 py-3 bg-gray-50 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-300`}
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
                         {errors.email && <p className='text-red-500 text-xs mt-1'>{errors.email}</p>}
                     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 21555ba2bf67e86e20c410275a6826418d44e57c
                     <div>
                         <div className='flex items-center justify-between mb-1'>
                             <label className='block text-gray-700 font-medium'>Password</label>
                             <a href="#" className='text-sm text-orange-500 hover:text-orange-600 transition duration-300'>Forgot Password?</a>
                         </div>
+<<<<<<< HEAD
 
                         <input
                             type={showPassword ? "text" : "password"}
                             placeholder='Enter your password'
+=======
+                        <input type={showPassword ? "text" : "password"} placeholder='Enter your password'
+>>>>>>> 21555ba2bf67e86e20c410275a6826418d44e57c
                             className={`w-full px-4 py-3 bg-gray-50 border ${errors.password ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-300`}
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
+<<<<<<< HEAD
 
                         {errors.password && <p className='text-red-500 text-xs mt-1'>{errors.password}</p>}
                     </div>
@@ -106,23 +139,37 @@ const Login = () => {
                         <input
                             type="checkbox"
                             id="showPassword"
+=======
+                        {errors.password && <p className='text-red-500 text-xs mt-1'>{errors.password}</p>}
+                    </div>
+                    <div className='flex items-center gap-2'>
+                        <input type="checkbox" id="showPassword"
+>>>>>>> 21555ba2bf67e86e20c410275a6826418d44e57c
                             className='w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 rounded focus:ring-orange-500 transition duration-300'
                             checked={showPassword}
                             onChange={() => setShowPassword(!showPassword)}
                         />
                         <label htmlFor="showPassword" className='text-gray-600'>Show Password</label>
                     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 21555ba2bf67e86e20c410275a6826418d44e57c
                     <button className='w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-300 transform hover:scale-[1.02]'>
                         Login
                     </button>
                 </form>
+<<<<<<< HEAD
 
                 <div className='mt-6 text-center w-full'>
                     <p className='text-gray-600'>
                         Don't have an account?
                         <Link to="/register" className='text-orange-500 font-bold hover:text-orange-600 transition duration-300'> Sign Up</Link>
                     </p>
+=======
+                <div className='mt-6 text-center w-full'>
+                    <p className='text-gray-600'>Don't have an account? <Link to="/register" className='text-orange-500 font-bold hover:text-orange-600 transition duration-300'>Sign Up</Link></p>
+>>>>>>> 21555ba2bf67e86e20c410275a6826418d44e57c
                 </div>
             </div>
         </div>
